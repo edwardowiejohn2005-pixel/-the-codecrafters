@@ -2,56 +2,74 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"strconv"
+	"strings"
 )
+
+func HexToDecimal(Hexstr string) (int64, error) {
+	num, err := strconv.ParseInt(Hexstr, 16, 64)
+	if err != nil {
+		return 0, err
+	}
+	return num, err
+}
+
+func BinToDecimal(Binstr string) (int64, error) {
+	num2, err := strconv.ParseInt(Binstr, 2, 64)
+	if err != nil {
+		return 0, err
+	}
+	return num2, err
+}
+
+func DecimalToBin(DecStri string) (string, string, error) {
+	DecStr, err := strconv.ParseInt(DecStri, 10, 64)
+	num3 := strconv.FormatInt(DecStr, 2)
+	num4 := strconv.FormatInt(DecStr, 16)
+	return strings.ToUpper(num4), num3, err
+}
 
 func main() {
 	for {
-		var input1 float64
-		var input2 float64
-		var operator string
+		var converter string
+		var num string
 
-		fmt.Println("<1> Add")
-		fmt.Println("<2> Subtract")
-		fmt.Println("<3> Multiply")
-		fmt.Println("<4> Divide")
-		fmt.Println("<5> Quit")
-		fmt.Print("Select Operator: ")
-		fmt.Scan(&operator)
+		fmt.Println("Select operation")
+		fmt.Println("<1> Hexadecimal")
+		fmt.Println("<2> Binary")
+		fmt.Println("<3> Bin and Hex to Decimal")
+		fmt.Scan(&converter)
 
-		if operator == "5" {
-			fmt.Println("Goodbye! Have a nice day!")
-			os.Exit(0)
+		if converter == "quit" {
+			fmt.Println("Have a nice day")
+			break
+
 		}
 
-		if operator != "1" && operator != "2" && operator != "3" && operator != "4" && operator != "5" {
-			fmt.Println("Help: Please select a valid operator (1-5) to perform a calculation.")
+		fmt.Println("Enter Number for convertion")
+		fmt.Scan(&num)
+
+		if num == "0" {
+			fmt.Println("Empty")
 			continue
 		}
-
-		fmt.Print("Enter first number: ")
-		fmt.Scan(&input1)
-
-		fmt.Print("Enter second number: ")
-		fmt.Scan(&input2)
-
-		switch operator {
+		if converter == "0" {
+			fmt.Println("Empty")
+			continue
+		}
+		switch converter {
 		case "1":
-			fmt.Println("Result =", input1+input2)
+			fmt.Println(HexToDecimal(num))
 		case "2":
-			fmt.Println("Result =", input1-input2)
+			fmt.Println(BinToDecimal(num))
 		case "3":
-			fmt.Println("Result =", input1*input2)
-		case "4":
-			if input2 == 0 {
-				fmt.Println("Error: Cannot divide by zero.")
-			} else {
-				fmt.Println("Result =", input1/input2)
-			}
-		default:
-			fmt.Println("Error: Invalid operator selected.")
+			bin, hex, err := DecimalToBin(num)
+
+			fmt.Printf("Bin: %s\n", bin)
+
+			fmt.Printf("Hex: %s\n", hex)
+			fmt.Println(err)
 		}
 
-		fmt.Println()
 	}
 }
