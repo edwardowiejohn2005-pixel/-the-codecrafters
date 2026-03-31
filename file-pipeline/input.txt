@@ -1,0 +1,19 @@
+ALERT LEVEL FIVE DETECTED IN NORTHERN SECTOR
+todo: confirm coordinates with Agent Bulus
+classified: target has been relocated to safe house delta
+-----------------------------------------------
+the perimeter was breached at 03:47 local time
+   extra spaces were not cleaned before logging   
+CLASSIFIED: secondary site has been compromised by hostile agents
+normal report line with no issues to flag
+todo: send backup units to the eastern checkpoint immediately
+EVERYTHING WAS FINE UNTIL IT WASN T AND THEN IT REALLY WASN T
+another normal line from the field agent on duty
+classified: the director has been fully briefed on all events
+SHORT LINE
+this line contains the word REVERSE in it so it gets special treatment by the pipeline
+a very long line that goes on and on past eighty characters and should be flagged accordingly by your pipeline when it encounters it during processing of the archive
+ALL CAPS LINE THAT NEEDS TO BE CONVERTED TO TITLE CASE FOR READABILITY
+   
+todo: verify that the drop point is still secure before proceeding with extraction
+the agent reported no unusual activity at the border checkpoint last night
